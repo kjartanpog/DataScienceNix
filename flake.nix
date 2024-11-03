@@ -11,6 +11,11 @@
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            hello
+          ];
+        };
+        devShells.python = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
             (python3.withPackages (python-pkgs: with python-pkgs; [
               pandas
               polars
